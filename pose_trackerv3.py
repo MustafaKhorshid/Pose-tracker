@@ -1,14 +1,3 @@
-"""
-Pose Tracker (Python version) with finger-snap toggle
-- Webcam with red body skeleton (no face) + full 21-point hand tracking
-- Snap your fingers (with a hand in view) to switch to skeleton-only mode.
-  Snap again to go back to the normal camera.
-
-Keys:  q = quit   s = toggle manually   d = show/hide mic debug info
-
-Usage: python pose_tracker.py [camera_index]
-"""
-
 import os
 import sys
 import time
@@ -83,10 +72,10 @@ class SnapDetector:
     """Listens to the microphone and flags sharp, sudden sounds (finger snaps)."""
 
     def __init__(self):
-        self.pending = False          # set True when a snap is heard, cleared by the main loop
-        self.level = 0.0              # latest sharpness level (for debug display)
-        self.threshold = MIN_LEVEL    # current trigger threshold (for debug display)
-        self.ambient = 0.01           # slow-moving background level
+        self.pending = False
+        self.level = 0.0    
+        self.threshold = MIN_LEVEL
+        self.ambient = 0.01
         self._last_trigger = 0.0
         self._stream = None
 
